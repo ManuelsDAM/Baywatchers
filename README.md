@@ -1,7 +1,7 @@
 # ProyectoETS
 Este es nuestro proyecto de ETS para 1ºDAW en IES Puerto de La Cruz 2025
 
-1. Tecnologías recomendadas
+## 1. Tecnologías recomendadas
 Lenguaje: Python 3.11+
 
 
@@ -32,7 +32,7 @@ Contenedores: Docker
 Documentación: Markdown + PlantUML o UMLet + Diagrama de despliegue (Docker + FastAPI + DB)
 
 
-3. Funcionalidades mínimas
+## 2. Funcionalidades mínimas
 a. 
 Seguimiento de productos
 Guardar productos con talla específica
@@ -92,7 +92,7 @@ Consultar configuración
 
 
 
-4. Calidad y pruebas
+## 3. Calidad y pruebas
 Usa pytest + pytest-cov para asegurar cobertura >90%
 
 
@@ -103,7 +103,7 @@ Tests de integración: base de datos + notificaciones
 
 
 
-5. Despliegue y contenedores
+## 4. Despliegue y contenedores
 Dockerfile + docker-compose con FastAPI, DB y tareas programadas
 
 
