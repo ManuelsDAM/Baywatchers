@@ -8,10 +8,10 @@ Lenguaje: Python 3.11+
 Scraping/API: requests, BeautifulSoup o alguna API de tienda (si existe)
 
 
-Persistencia: SQLite o PostgreSQL con SQLAlchemy
+Persistencia: PostgreSQL con SQLAlchemy
 
 
-Notificaciones Telegram: python-telegram-bot o telepot
+Notificaciones Telegram: botfather, usamos nuestro bot Baywatchersbot
 
 
 Tareas periódicas: APScheduler o Celery (si necesitas concurrencia real)
