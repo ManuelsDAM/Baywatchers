@@ -108,3 +108,6 @@ Dockerfile + docker-compose con FastAPI, DB y tareas programadas
 
 
 .env para manejar los tokens de forma segura
+
+
+:recycle: :goberserk: :tm:
