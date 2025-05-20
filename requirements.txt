@@ -1,0 +1,1 @@
+Instalar decouple para usar los datos dentro del .env "pip install python-decouple"
