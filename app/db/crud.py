@@ -1,0 +1,36 @@
+from sqlalchemy.orm import Session
+from app.db.models import User, Product
+
+def get_or_create_user(db, telegram_id):
+    user = db.query(User).filter_by(telegram_id=telegram_id).first()
+    if not user:
+        user = User(telegram_id=telegram_id)
+        db.add(user)
+        db.commit()
+        db.refresh(user)
+    return user
+
+def add_product_for_user(db, user, url):
+    product = Product(url=url, user=user)
+    db.add(product)
+    db.commit()
+    db.refresh(product)
+    return product
+
+def remove_product_for_user(db, user, url):
+    product = db.query(Product).filter_by(user=user, url=url).first()
+    if product:
+        db.delete(product)
+        db.commit()
+        return True
+    return False
+
+def list_user_products(db, user):
+    return db.query(Product).filter_by(user=user).all()
+
+def update_check_interval_for_user(db, user, interval: int) -> int:
+    products = db.query(Product).filter(Product.user_id == user.id).all()
+    for product in products:
+        product.check_interval = interval
+    db.commit()
+    return len(products)

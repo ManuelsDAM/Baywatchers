@@ -1,14 +1,23 @@
 from telegram.ext import ApplicationBuilder, CommandHandler
-from app.bot.commands import handle_start, handle_help, handle_vigilar, handle_detener
+from app.bot.handlers import (
+    start_command, ayuda_command, vigilar_command,
+    detener_command, misproductos_command, checkinterval_command
+)
 from app.config import BOT_TOKEN
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
-    app.add_handler(CommandHandler("start", handle_start))
-    app.add_handler(CommandHandler("ayuda", handle_help))
-    app.add_handler(CommandHandler("vigilar", handle_vigilar))
-    app.add_handler(CommandHandler("detener", handle_detener))
+    app.add_handler(CommandHandler("start", start_command))
+    app.add_handler(CommandHandler("ayuda", ayuda_command))
+    app.add_handler(CommandHandler("vigilar", vigilar_command))
+    app.add_handler(CommandHandler("detener", detener_command))
+    app.add_handler(CommandHandler("misproductos", misproductos_command))
+    app.add_handler(CommandHandler("checkinterval", checkinterval_command))
 
     print("Bot iniciado correctamente")
     app.run_polling()
+
+
+if __name__ == "__main__":
+    main()
