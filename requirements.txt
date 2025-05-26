@@ -1,6 +1,30 @@
-certifi==2025.4.26
-charset-normalizer==3.4.2
-idna==3.10
+psycopg2-binary==2.9.10
 python-decouple==3.8
+python-telegram-bot==22.1
 requests==2.32.3
-urllib3==2.4.0
+SQLAlchemy==2.0.41
+
+:: Crear entorno virtual llamado "venv"
+python -m venv venv
+
+:: Activar entorno virtual
+venv\Scripts\activate
+
+:: Instalar dependencias del requirements.txt
+pip install -r requirements.txt
+
+:: Ejecutar el bot (suponiendo que el script principal es telegrambot.py)
+python app/bot/telegrambot.py
+
+:: Para salir del entorno virtual
+deactivate
+
+Clona el repositorio.
+
+Crea y activa un entorno virtual con python -m venv venv y venv\Scripts\activate (Windows).
+
+Instala las dependencias con pip install -r requirements.txt.
+
+Ejecuta el bot con python app/bot/telegrambot.py.
+
+Para desactivar el entorno virtual usa deactivate.
