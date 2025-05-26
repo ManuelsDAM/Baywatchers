@@ -1,13 +1,15 @@
 from app.bot.notify import send_message
+from telegram import Update
+from telegram.ext import ContextTypes
 
-def handle_command(chat_id, text):
-    if text.startswith("/start"):
-        send_message(chat_id, "👋 ¡Bienvenido al bot Baywatchers!")
-    elif text.startswith("/ayuda"):
-        send_message(chat_id, "📌 Comandos:\n/start\n/ayuda\n/vigilar <URL>\n/detener <URL>")
-    elif text.startswith("/vigilar"):
-        send_message(chat_id, "✅ Producto añadido (ficticio por ahora).")
-    elif text.startswith("/detener"):
-        send_message(chat_id, "❌ Producto eliminado (ficticio por ahora).")
-    else:
-        send_message(chat_id, "❓ Comando no reconocido.")
+async def handle_start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("👋 ¡Bienvenido al bot Baywatchers!")
+
+async def handle_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("📌 Comandos:\n/start\n/ayuda\n/vigilar <URL>\n/detener <URL>")
+
+async def handle_vigilar(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("✅ Producto añadido (ficticio por ahora).")
+
+async def handle_detener(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("❌ Producto eliminado (ficticio por ahora).")

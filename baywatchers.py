@@ -1,8 +1,11 @@
-from app.bot.telegrambot import main_loop
+from app.bot.telegrambot import main
+from app.bot.notify import send_message
+from decouple import config
 
 if __name__ == "__main__":
-    main_loop()
-
+    chat_id = int(config("CHAT_ID"))
+    send_message(chat_id,"🔔 Prueba de notificación automática.")
+    main()
 
 """import request as req
 
