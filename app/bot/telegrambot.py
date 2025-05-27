@@ -10,10 +10,10 @@ def main():
 
     app.add_handler(CommandHandler("start", start_command))
     app.add_handler(CommandHandler("ayuda", ayuda_command))
-    app.add_handler(CommandHandler("vigilar", vigilar_command))
-    app.add_handler(CommandHandler("detener", detener_command))
-    app.add_handler(CommandHandler("misproductos", misproductos_command))
-    app.add_handler(CommandHandler("checkinterval", checkinterval_command))
+    app.add_handler(CommandHandler("vigilar", vigilar_command,block=False))
+    app.add_handler(CommandHandler("detener", detener_command,block=False))
+    app.add_handler(CommandHandler("misproductos", misproductos_command,block=False))
+    app.add_handler(CommandHandler("checkinterval", checkinterval_command,block=False))
 
     print("Bot iniciado correctamente")
     app.run_polling()
