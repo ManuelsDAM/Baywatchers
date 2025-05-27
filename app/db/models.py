@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
+from datetime import datetime
 
 Base = declarative_base()
 
@@ -21,3 +22,17 @@ class Product(Base):
     check_interval = Column(Integer, default=60)
     user_id = Column(Integer, ForeignKey("users.id"))
     user = relationship("User", back_populates="products")
+    price_history = relationship("PriceHistory", back_populates="product", cascade="all, delete")
+
+class PriceHistory(Base):
+    __tablename__ = "price_history"
+
+    id = Column(Integer, primary_key=True)
+    product_id = Column(Integer, ForeignKey("products.id"), nullable=False)
+    timestamp = Column(datetime, default=datetime.utcnow)
+    price = Column(Float, nullable=False)
+    original_price = Column(Float)
+    descuento_activo = Column(String)
+
+    # Relación inversa
+    product = relationship("Product", back_populates="price_history")
