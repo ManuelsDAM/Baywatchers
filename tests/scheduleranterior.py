@@ -1,5 +1,4 @@
 from sqlalchemy.orm import Session
-from sqlalchemy import func
 from app.db.models import User, Product, PriceHistory
 
 def get_or_create_user(db, telegram_id):
@@ -38,19 +37,3 @@ def update_check_interval_for_user(db, user, interval: int) -> int:
 
 def get_price_history_for_product(db, product_id: int):
     return db.query(PriceHistory).filter_by(product_id=product_id).order_by(PriceHistory.timestamp.desc()).all()
-
-def get_price_statistics(db, product_id):
-    result = db.query(
-        func.avg(PriceHistory.price),
-        func.max(PriceHistory.price),
-        func.min(PriceHistory.price)
-    ).filter(PriceHistory.product_id == product_id).first()
-
-    avg, max_, min_ = result
-    return round(avg, 2), round(max_, 2), round(min_, 2)
-
-def get_last_10_prices(db, product_id):
-    return db.query(PriceHistory)\
-        .filter_by(product_id=product_id)\
-        .order_by(PriceHistory.timestamp.desc())\
-        .limit(10).all()
