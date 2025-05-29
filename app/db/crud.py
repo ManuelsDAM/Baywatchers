@@ -10,8 +10,8 @@ def get_or_create_user(db, telegram_id):
         db.refresh(user)
     return user
 
-def add_product_for_user(db, user, url):
-    product = Product(url=url, user=user)
+def add_product_for_user(db, user, url, last_price=None):
+    product = Product(url=url, user=user, last_price=last_price)
     db.add(product)
     db.commit()
     db.refresh(product)

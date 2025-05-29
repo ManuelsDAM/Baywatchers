@@ -4,10 +4,11 @@ from app.bot.handlers import (
     detener_command, misproductos_command, checkinterval_command
 )
 from app.config import BOT_TOKEN
+from app.scheduler import start_scheduler
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
-
+    start_scheduler()
     app.add_handler(CommandHandler("start", start_command))
     app.add_handler(CommandHandler("ayuda", ayuda_command))
     app.add_handler(CommandHandler("vigilar", vigilar_command,block=False))

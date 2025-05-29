@@ -1,47 +1,31 @@
-from bs4 import BeautifulSoup
 import requests
-from app.db import SessionLocal
-from app.db.models import ProductHistory
+from urllib.parse import urlparse
 
-def extract_product_info_from_url(url: str) -> dict:
-    headers = {
-        "User-Agent": "Mozilla/5.0"  # Evita bloqueos
-    }
-    response = requests.get(url, headers=headers)
-    soup = BeautifulSoup(response.text, "html.parser")
+def extract_slug_from_url(url: str) -> str:
+    """
+    Extrae el slug desde la URL completa de Fittest Freakest.
+    Ej: https://www.fittestfreakest.es/zapatillas/while-on-earth-move-trainer
+    Devuelve: while-on-earth-move-trainer
+    """
+    path = urlparse(url).path
+    parts = path.strip("/").split("/")
+    if parts and parts[-1]:
+        return parts[-1]
+    raise ValueError("No se pudo extraer el slug de la URL")
 
-    title = soup.title.string.strip() if soup.title else "Título no encontrado"
-    current_price_span = soup.find("span", class_="customer-price")
-    original_price_span = soup.find("span", class_="product-discount-price")
+def get_product_data_from_api(slug: str) -> dict:
+    """
+    Llama a la API de Fittest Freakest y devuelve nombre y precio del producto.
+    """
+    url = f"https://api.fittestfreakest.es/catalog/zapatillas/{slug}"
+    response = requests.get(url)
 
-    # Limpieza
-    def parse_price(span):
-        if not span:
-            return None
-        return float(span.get_text(strip=True).replace("€", "").replace(",", ".").strip())
+    if response.status_code != 200:
+        raise Exception(f"Producto no encontrado o error de API ({response.status_code})")
 
-    current_price = parse_price(current_price_span)
-    original_price = parse_price(original_price_span)
-    descuento_activo = "Sí" if original_price else "No"
+    data = response.json()
 
     return {
-        "title": title,
-        "price": current_price,
-        "original_price": original_price,
-        "descuento_activo": descuento_activo
+        "name": data.get("name", "Nombre desconocido"),
+        "price": data.get("price", 0.0)
     }
-
-def track_product(url: str):
-    data = extract_product_info_from_url(url)
-    db = SessionLocal()
-    record = ProductHistory(
-        url=url,
-        title=data["title"],
-        price=data["price"],
-        original_price=data["original_price"],
-        descuento_activo=data["descuento_activo"]
-    )
-    db.add(record)
-    db.commit()
-    db.close()
-    print(f"[{data['title']}] Precio registrado: {data['price']}€")

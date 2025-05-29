@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 from datetime import datetime
+from sqlalchemy import DateTime
 
 Base = declarative_base()
 
@@ -29,7 +30,7 @@ class PriceHistory(Base):
 
     id = Column(Integer, primary_key=True)
     product_id = Column(Integer, ForeignKey("products.id"), nullable=False)
-    timestamp = Column(datetime, default=datetime.utcnow)
+    timestamp = Column(DateTime, default=datetime.utcnow)
     price = Column(Float, nullable=False)
     original_price = Column(Float)
     descuento_activo = Column(String)

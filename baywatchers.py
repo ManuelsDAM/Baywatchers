@@ -4,14 +4,17 @@ from decouple import config
 from app.db import engine
 from app.db.models import Base
 from app.scheduler import start_scheduler
+#import threading 
 
 Base.metadata.create_all(bind=engine)
 
 if __name__ == "__main__":
     chat_id = int(config("CHAT_ID"))
     send_message(chat_id,"🔔 Prueba de notificación automática.")
-    main()
+    #bot_thread= threading.Thread(target=main)
+    #bot_thread.start()
     start_scheduler()
+    main()
 
 """import request as req
 
