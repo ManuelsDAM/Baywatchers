@@ -1,11 +1,11 @@
 from telegram.ext import ApplicationBuilder, CommandHandler
 from app.bot.handlers import (
     start_command, ayuda_command, vigilar_command,
-    detener_command, misproductos_command, checkinterval_command, estadisticas_command
+    detener_command, misproductos_command, checkinterval_command,
 )
 from app.config import BOT_TOKEN
 from app.scheduler import start_scheduler
-
+from app.bot.handlers.estadisticas import estadisticas_command
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()

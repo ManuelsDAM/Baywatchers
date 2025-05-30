@@ -31,4 +31,4 @@ def insertar_nuevo_precio(session, product_id: int, nuevo_precio: float):
 
 # Ejemplo de uso:
 #Base.metadata.create_all(bind=engine)
-insertar_nuevo_precio(session, 3, 71)
+insertar_nuevo_precio(session, 3, 69)
