@@ -114,4 +114,4 @@ docker run -p 8000:8000 baywatchers
 .env para manejar los tokens de forma segura
 
 
-:recycle: :goberserk: :tm:
+:tm: :shipit: :recycle: :goberserk:
