@@ -13,6 +13,7 @@ Baywatchers es una aplicación desarrollada en Python con FastAPI para el seguim
 - [`arquitectura.md`](./arquitectura.md): Estructura del código
 - [`uml.md`](./uml.md): Diagramas UML del sistema
 - [`api.md`](./api.md): Documentación de los endpoints de la API
+- [`manual_usuario.md`](./manual_usuario.md): Manual para el usuario
 
 
 :tm: :shipit: :recycle: :goberserk:
