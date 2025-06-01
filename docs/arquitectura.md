@@ -88,7 +88,7 @@ Baywatchers
         __init__.py
 
 ```
-
+```vscode
 ::: mermaid
 
 graph TD
@@ -149,5 +149,5 @@ graph TD
     CRUD --> DBInit
     Tests --> App
 :::
-
+```
 :tm: :shipit: :recycle: :goberserk:
