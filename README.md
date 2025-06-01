@@ -106,6 +106,10 @@ Tests de integración: base de datos + notificaciones
 ## 4. Despliegue y contenedores
 Dockerfile + docker-compose con FastAPI, DB y tareas programadas
 
+## Desde la raíz del proyecto (donde está el Dockerfile)
+docker build -t baywatchers .
+docker run -p 8000:8000 baywatchers
+
 
 .env para manejar los tokens de forma segura
 
