@@ -1,28 +1,13 @@
 version: "3.9"
 
-
 services:
   app:
     build: .
     container_name: baywatchers_app
     env_file:
       - .env
-    depends_on:
-      - db
     restart: unless-stopped
-
-
-  db:
-    image: postgres:15
-    container_name: baywatchers_db
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: trackeruser
-      POSTGRES_PASSWORD: trackerpass
-      POSTGRES_DB: baywatchersdb
+    ports:
+      - "8000:8000"  # Ajusta si tu app usa otro puerto
     volumes:
-      - db_data:/var/lib/postgresql/data
-
-
-volumes:
-  db_data:
+      - .:/app  # Opcional: para desarrollo en vivo

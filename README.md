@@ -52,12 +52,12 @@ Notificaciones
 Conexión con bot de Telegram
 
 
-Envío inmediato al usuario cuando hay cambio de precio
+Envío al usuario cuando hay cambio de precio
 
 
 c. 
 Persistencia
-Base de datos para:
+Base de datos usando sqlite3 para:
 
 
 Productos

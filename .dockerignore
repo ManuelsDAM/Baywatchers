@@ -1,0 +1,27 @@
+# Carpetas comunes que no deben ir al contenedor
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite3
+
+# Entornos virtuales locales
+.venv/
+env/
+venv/
+
+# Git y control de versiones
+.git/
+.gitignore
+
+# VSCode y otros editores
+.vscode/
+.idea/
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de pruebas (si no se usan dentro del contenedor)
+tests/
