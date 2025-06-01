@@ -88,6 +88,9 @@ Baywatchers
         __init__.py
 
 ```
+
+![Arquitectura](./img/arquitectura.png)
+Esto es lo que puede verse con el código que se encuentra debajo, si se estuviese viendo en vscode con la extensión "mermaid".
 ```vscode
 ::: mermaid
 
