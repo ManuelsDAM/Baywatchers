@@ -41,3 +41,5 @@ Escribe `/ayuda` en cualquier momento y el bot te recordará los comandos dispon
 ---
 
 👥 Gracias por usar Baywatchers. Tu ahorro es nuestra prioridad.
+
+:tm: :shipit: :recycle: :goberserk:
