@@ -1,0 +1,11 @@
+@startuml
+class ProductInput {
+    home()
+    get_user_config()
+    get_user_products()
+    add_product()
+    delete_product()
+        __init__()
+}
+BaseModel <|-- ProductInput
+@enduml

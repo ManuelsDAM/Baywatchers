@@ -1,0 +1,14 @@
+@startuml
+class User {
+        __init__()
+}
+class Product {
+        __init__()
+}
+class PriceHistory {
+        __init__()
+}
+Base <|-- User
+Base <|-- Product
+Base <|-- PriceHistory
+@enduml
