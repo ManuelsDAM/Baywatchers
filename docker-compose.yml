@@ -1,13 +1,24 @@
 version: "3.9"
 
 services:
-  app:
+  api:
     build: .
-    container_name: baywatchers_app
+    container_name: baywatchers_api
     env_file:
       - .env
     restart: unless-stopped
     ports:
       - "8000:8000"
+    command: poetry run uvicorn app.api.main:app --host 0.0.0.0 --port 8000
+    volumes:
+      - .:/app
+
+  bot:
+    build: .
+    container_name: baywatchers_bot
+    env_file:
+      - .env
+    restart: unless-stopped
+    command: poetry run python baywatchers.py
     volumes:
       - .:/app
