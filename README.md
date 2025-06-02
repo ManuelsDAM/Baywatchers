@@ -2,7 +2,7 @@
 Este es nuestro proyecto de ETS para 1ºDAW en IES Puerto de La Cruz 2025
 
 ## 1. Tecnologías recomendadas
-Lenguaje: Python 3.11+
+Lenguaje: Python 3.13+
 
 
 Scraping/API: requests, BeautifulSoup o alguna API de tienda (si existe)
@@ -106,8 +106,12 @@ Tests de integración: base de datos + notificaciones
 ## 4. Despliegue y contenedores
 Dockerfile + docker-compose con FastAPI, DB y tareas programadas
 
+## Desde la raíz del proyecto (donde está el Dockerfile)
+docker build -t baywatchers .
+docker run -p 8000:8000 baywatchers
+
 
 .env para manejar los tokens de forma segura
 
 
-:recycle: :goberserk: :tm:
+:tm: :shipit: :recycle: :goberserk:

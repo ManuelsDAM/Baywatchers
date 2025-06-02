@@ -16,5 +16,5 @@ COPY . .
 RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
-# Ejecutar baywatchers.py con poetry
-CMD ["poetry", "run", "python", "baywatchers.py"]
+# Ejecutar la API con uvicorn
+CMD ["poetry", "run", "uvicorn", "app.api.main:app", "--host", "0.0.0.0", "--port", "8000"]
