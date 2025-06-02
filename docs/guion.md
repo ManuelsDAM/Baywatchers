@@ -24,7 +24,6 @@ Se inicia con el comando `/start`. Con `/vigilar <url>` se comienza a monitorear
 Entre los puntos fuertes del proyecto destacamos su facilidad de uso directamente desde Telegram, su arquitectura modular que facilita su escalabilidad, y su autonomía, ya que revisa los precios de forma periódica sin intervención del usuario.  
 Aporta valor al permitir a los usuarios un seguimiento pasivo y automático del precio de los productos que les interesan.
 
-Como propuestas de mejora, planteamos implementar notificaciones automáticas cuando el precio baja, soporte para más sitios de e-commerce, exportación de estadísticas en formatos PDF o CSV, y eventualmente un frontend web. Además, en un entorno más robusto, podríamos usar PostgreSQL como base de datos.
 
 Gracias por ver esta presentación de Baywatchers. Esperamos que esta solución sea útil y estamos abiertos a seguir mejorándola con nuevas funcionalidades.
 
