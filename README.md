@@ -2,7 +2,7 @@
 Este es nuestro proyecto de ETS para 1ºDAW en IES Puerto de La Cruz 2025
 
 ## 1. Tecnologías recomendadas
-Lenguaje: Python 3.11+
+Lenguaje: Python 3.13+
 
 
 Scraping/API: requests, BeautifulSoup o alguna API de tienda (si existe)
