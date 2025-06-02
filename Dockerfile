@@ -16,7 +16,5 @@ COPY . .
 RUN poetry config virtualenvs.create false \
     && poetry install --no-interaction --no-ansi
 
-
-
-# Comando para ejecutar tu aplicación
-CMD ["python", "app/api/main.py"]
+# Ejecutar baywatchers.py con poetry
+CMD ["poetry", "run", "python", "baywatchers.py"]

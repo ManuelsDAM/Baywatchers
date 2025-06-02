@@ -8,6 +8,6 @@ services:
       - .env
     restart: unless-stopped
     ports:
-      - "8000:8000"  # Ajusta si tu app usa otro puerto
+      - "8000:8000"
     volumes:
-      - .:/app  # Opcional: para desarrollo en vivo
+      - .:/app
